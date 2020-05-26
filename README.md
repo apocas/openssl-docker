@@ -1,7 +1,5 @@
 # openssl-docker
 
-Every openssl module I found unsafely executed openssl via childprocess with external data. (very unsafe!, shell injection and what not...)
-
 Small and quick openssl-docker module to execute openssl features inside Docker containers.
 
 ## Installation
