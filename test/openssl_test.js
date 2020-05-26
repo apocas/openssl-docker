@@ -4,13 +4,17 @@ var OpenSSL = require('../lib/openssl');
 
 var openssl = new OpenSSL();
 
-openssl.csr('exampledomain.com', {
-	outputDir: __dirname,
-	read: true,
-	company: 'Example, Inc.',
-	email: 'joe@foobar.com'
-}, function(err, keys){
-	console.log('CSR created!')
-	console.log('key: '+keys.private);
-	console.log('csr: '+keys.csr);
+describe('Openssl', function () {
+  it('should generate an CSR', function () {
+    openssl.csr('exampledomain.com', {
+      outputDir: '/tmp/',
+      read: true,
+      company: 'Example, Inc.',
+      email: 'joe@foobar.com'
+    }, function (err, keys) {
+      assert.ok(keys.key);
+      assert.ok(keys.csr);
+    });
+  });
 });
+

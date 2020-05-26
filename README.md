@@ -11,13 +11,17 @@ var OpensslDocker = require('openssl-docker');
 var openssl = new OpensslDocker();
 
 openssl.csr('exampledomain.com', {
-	outputDir: __dirname,
-	read: true,
-	company: 'Example, Inc.',
-	email: 'joe@foobar.com'
-}, function(err, keys){
-	console.log('CSR created!')
-	console.log('key: '+keys.private);
-	console.log('csr: '+keys.csr);
+  outputDir: '/tmp/',
+  read: true,
+  company: 'Example, Inc.',
+  email: 'joe@foobar.com'
+}, function (err, keys) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('CSR created!')
+    console.log('key: ' + keys.key);
+    console.log('csr: ' + keys.csr);
+  }
 });
 ```
