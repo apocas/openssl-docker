@@ -34,7 +34,7 @@ openssl.csr('exampledomain.com', {
 
 ## Tests
 
- * `docker pull ubuntu:latest` to prepare your system for the tests.
+ * `docker pull apocas/openssl` to prepare your system for the tests.
  * Tests are implemented using `mocha` and `chai`. Run them with `npm test`.
 
 ## Examples
