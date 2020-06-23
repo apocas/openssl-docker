@@ -16,3 +16,19 @@ openssl.csr('exampledomain.com', {
     console.log('csr: ' + keys.csr);
   }
 });
+
+openssl.pfx('exampledomain.com', {
+  inputDir: '/tmp/',
+  pkName: 'exampledomain.com.pk',
+  crtName: 'exampledomain.com.crt',
+  outputDir: '/tmp/',
+  certfileName: 'exampledomain.com.cert',
+  password: 'mypassword'
+}, function (err, outputPath) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(undefined, outputPath);
+  }
+});
+
